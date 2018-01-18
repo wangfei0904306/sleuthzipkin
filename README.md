@@ -1,12 +1,12 @@
 # sleuth与zipkin配合进行服务追踪
 ----
 ## 依次启动项目中所有服务
-* EurekaApplication
-* ZuulApplication
-* ZipkinApplication
-* InvokerApplication
-* ExampleService2Application
-* ExampleServiceApplication
+* **EurekaApplication**  注册中心
+* **ZuulApplication**  Zuul网关调用
+* **ZipkinApplication**  zipkin服务器
+* **InvokerApplication**  RestTemplate调用
+* **ExampleService2Application**  被调用的服务
+* **ExampleServiceApplication**  被调用的服务
 
 ## 浏览器打开以下网址
 * [http://localhost:10007/invoker/get](http://localhost:10007/invoker/get)
