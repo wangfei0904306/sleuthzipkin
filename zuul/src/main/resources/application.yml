@@ -1,0 +1,54 @@
+spring:
+  application:
+    name: zuul
+  profiles:
+      active: local
+
+server:
+  port: 10002
+
+zuul:
+  retryable: true   #转发重试关闭
+  routes:
+    example-service:
+      path: /example-service/**
+      serviceId: example-service
+
+#服务调用超时配置
+hystrix:
+  command:
+    example-service:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 12000   #hystix的连接超时时间
+
+ribbon:
+  ConnectTimeout: 3500 #创建连接的超时时间
+  ReadTimeout: 4000 #路由转发请求的超时时间
+  OkToRetryOnAllOperations: true
+  MaxAutoRetries: 0 #本机不再重试
+  MaxAutoRetriesNextServer: 5
+
+---
+###################  开发环境的profile  ###################
+spring:
+  profiles: local
+  zipkin:
+    base-url: http://localhost:9411
+
+eureka:
+  instance:
+    hostname: ${spring.cloud.client.ipAddress}
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10001/eureka/
+
+      #http://www.itkeyword.com/doc/5016272925572737815/zuul-ribbon-hystrix-not-retrying-on-different-instance
+      #http://www.jb51.net/article/128511.htm
+      #https://www.jianshu.com/p/cb69bb385d24
+
+logging:
+  level:
+    root: INFO
+    com.iciyun: INFO

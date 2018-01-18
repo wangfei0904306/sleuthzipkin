@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: eureka
+  profiles:
+      active: local
+
+server:
+  port: 10001
+
+
+---
+###################  开发环境的profile  ###################
+spring:
+  profiles: local
+
+eureka:
+  instance:
+    hostname: ${spring.cloud.client.ipAddress}
+  client:
+    register-with-eureka: false  #false 让服务注册中心不注册自己
+    fetch-registry: false #false 让服务注册中心不注册自己
+    service-url:
+          defaultZone: http://127.0.0.1:10001/eureka/

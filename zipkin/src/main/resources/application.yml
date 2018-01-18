@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: zipkin
+  profiles:
+      active: local
+
+server:
+  port: 9411
+
+---
+###################  开发环境的profile  ###################
+spring:
+  profiles: local
+
+eureka:
+  instance:
+    hostname: ${spring.cloud.client.ipAddress}
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10001/eureka/
+
+      #http://www.itkeyword.com/doc/5016272925572737815/zuul-ribbon-hystrix-not-retrying-on-different-instance
+      #http://www.jb51.net/article/128511.htm
+      #https://www.jianshu.com/p/cb69bb385d24
+
+logging:
+  level:
+    root: INFO
+    com.iciyun: INFO

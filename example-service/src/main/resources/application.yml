@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: example-service
+  profiles:
+      active: local
+
+server:
+  port: 10003
+
+---
+###################  开发环境的profile  ###################
+spring:
+  profiles: local
+  zipkin:
+    base-url: http://localhost:9411
+
+eureka:
+  instance:
+      #hostname: ${spring.cloud.client.ipAddress}
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10001/eureka/
+
+logging:
+  level:
+    root: INFO
+    com.iciyun: INFO
