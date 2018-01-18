@@ -13,6 +13,9 @@ spring:
   profiles: local
   zipkin:
       base-url: http://localhost:9411
+  sleuth:
+    sampler:
+      percentage: 1.0
 
 eureka:
   instance:
@@ -24,4 +27,5 @@ eureka:
 logging:
   level:
     root: INFO
-    com.iciyun: INFO
+    org.springframework.web.servlet.DispatcherServlet: DEBUG
+    org.springframework.cloud.sleuth: DEBUG
