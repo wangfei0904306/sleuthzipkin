@@ -7,7 +7,7 @@
 * InvokerApplication
 * ExampleService2Application
 * ExampleServiceApplication
-* 
+
 ## 浏览器打开以下网址
 * [http://localhost:10007/invoker/get](http://localhost:10007/invoker/get)
 * [http://localhost:10002/example-service/example/get](http://localhost:10002/example-service/example/get)
