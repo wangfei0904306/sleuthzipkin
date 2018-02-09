@@ -15,7 +15,7 @@
 * [http://localhost:10002/invoker/invoker/get](http://localhost:10002/invoker/invoker/get)
 
 #### 查看结果
-网页地址：[http://localhost:9411/zipkin](http://localhost:9411/zipkin)
+网页地址：[http://localhost:9411/zipkin/](http://localhost:9411/zipkin/)
 打开网页后选择时间（范围一定够大），Limit改为1000，然后点击**Find Trances**
 ## 注意事项
 1. 打开日志便于观察
