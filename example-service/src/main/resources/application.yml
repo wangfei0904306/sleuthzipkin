@@ -3,6 +3,11 @@ spring:
     name: example-service
   profiles:
       active: local
+  rabbitmq:
+    addresses: 192.168.14.97
+    port: 5672
+    username: guest
+    password: guest
 
 server:
   port: 10003
