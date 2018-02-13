@@ -3,6 +3,11 @@ spring:
     name: example-service
   profiles:
       active: local
+  rabbitmq:
+    addresses: 192.168.14.97
+    port: 5672
+    username: guest
+    password: guest
 
 server:
   port: 10003
@@ -12,7 +17,7 @@ server:
 spring:
   profiles: local
   zipkin:
-      base-url: http://localhost:9411
+      #base-url: http://localhost:9411
   sleuth:
     sampler:
       percentage: 1.0
